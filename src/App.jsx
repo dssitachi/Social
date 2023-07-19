@@ -4,6 +4,7 @@ import Signup from "./pages/Signup";
 import RequireAuth from './components/RequireAuth';
 import Home from './pages/Home';
 import { ToastContainer, Slide } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 	return (

@@ -8,7 +8,6 @@ const initialState = {
     token: JSON.parse(localStorage.getItem(AUTHKEY))?.token,
     isLoading: false
 }
-console.log(initialState)
 
 const authSlice = createSlice({
     name: "auth",
@@ -56,7 +55,7 @@ const authSlice = createSlice({
                 })
             );
             console.log(action.payload)
-            // displayToast("success", `Welcome ${action.payload.foundUser.firstName}`);
+            displayToast("success", `Welcome ${action.payload.createdUser.firstName}`);
         })
 
         .addCase(handleSignup.rejected, (state, action) => {
@@ -67,7 +66,7 @@ const authSlice = createSlice({
 
 export const handleLogin = createAsyncThunk('auth/login', async({username, password}, thunkAPI) => {
     try {
-        const response = await loginService(username, password);
+        const response = await loginService({username, password});
         return response.data;
     } catch(error) {
         console.log(error)

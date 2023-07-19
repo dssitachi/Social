@@ -1,12 +1,20 @@
 import { useState } from "react";
+import { handleLogin } from "./authSlice";
+import { useDispatch } from "react-redux";
 
 function Login() {
 
-	const [email, setEmail] = useState("");
+	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
-
-	function handleSubmit() {
-
+	const dispatch = useDispatch();
+	
+	function handleSubmit(e) {
+		e.preventDefault();
+		dispatch(
+			handleLogin({
+				username, password
+			})
+		);
 	}
 
 	return (
@@ -16,16 +24,16 @@ function Login() {
 				onSubmit={handleSubmit}
 			>
 				<div className="mb-4">
-					<label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-						Email
+					<label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
+						Username
 					</label>
 					<input
 						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-						id="email"
-						type="email"
-						placeholder="Enter your email"
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
+						id="username"
+						type="text"
+						placeholder="Enter your username"
+						value={username}
+						onChange={(e) => setUsername(e.target.value)}
 					/>
 				</div>
 				<div className="mb-4">
@@ -43,10 +51,10 @@ function Login() {
 				</div>
 				<div className="flex items-center justify-between">
 					<button
-						className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+						className="bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 						type="submit"
 					>
-						Sign In
+						Log In
 					</button>
 					<a
 						className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"

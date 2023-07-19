@@ -8,9 +8,7 @@ function Signup() {
 		firstName: '',
 		lastName: '',
 		username: '',
-		password: '',
-		avatarURL:
-		"https://images.pexels.com/lib/avatars/purple.png?w=50&h=50&fit=crop",
+		password: ''
 	});
 
 	const handleChange = (e) => {
@@ -21,41 +19,33 @@ function Signup() {
 	};
 
 	const handleSubmit = (e) => {
-		// e.preventDefault();
-		// // Perform registration logic here
-		// console.log(formData);
-		// dispatch(
-		// handleSignup({firstName,lastName, username, password, avatarURL})
-		// );
+		e.preventDefault();
+		dispatch(
+			handleSignup({
+				firstName: formData.firstName,
+				lastName: formData.lastName,
+				username: formData.username,
+				password: formData.password,
+			})
+		);
 	};
 
 	return (
-		<main className="flex items-center justify-center min-h-screen bg-gray-100">
-			<div className="w-full max-w-md">
+		<main className="flex items-center justify-center min-h-screen bg-white">
+			<div className="w-full max-w-md bg-gray-100">
 				<form
-					className="bg-white shadow-md rounded px-8 py-6"
+					className=" rounded px-8 py-6"
 					onSubmit={(e) => {
-						e.preventDefault();
-						// Perform registration logic here
-						console.log(formData);
-						dispatch(
-						handleSignup({
-							firstName: formData.firstName,
-							lastName: formData.lastName,
-							username: formData.username,
-							password: formData.password,
-							avatarURL: formData.avatarURL,
-						})
-						);
+						handleSubmit(e);
 					}}
 				>
-					<h1 className="text-4xl font-bold text-center mb-8">
-						Create an Account
+					<h1 className="text-3xl font-medium text-center mb-8">
+						Register
 					</h1>
 					<div className="mb-4">
 						<label
 							htmlFor="firstName"
-							className="block text-gray-700 text-sm font-bold mb-2"
+							className="block text-gray-700 text-sm font-semibold mb-1"
 						>
 							First Name
 						</label>
@@ -65,7 +55,7 @@ function Signup() {
 							name="firstName"
 							value={formData.firstName}
 							onChange={handleChange}
-							className="input-field"
+							className="text-sm border bg-transparent border-gray-300 focus:border-blue-300 outline-none p-1 rounded w-full focus:transition-colors duration-1000"
 							placeholder="Enter your first name"
 							required
 						/>
@@ -73,7 +63,7 @@ function Signup() {
 					<div className="mb-4">
 						<label
 							htmlFor="lastName"
-							className="block text-gray-700 text-sm font-bold mb-2"
+							className="block text-gray-700 text-sm font-semibold mb-1"
 						>
 							Last Name
 						</label>
@@ -83,7 +73,7 @@ function Signup() {
 							name="lastName"
 							value={formData.lastName}
 							onChange={handleChange}
-							className="input-field"
+							className="text-sm border border-gray-300 focus:border-blue-300 outline-none p-1 rounded w-full focus:transition-colors duration-1000"
 							placeholder="Enter your last name"
 							required
 						/>
@@ -91,7 +81,7 @@ function Signup() {
 					<div className="mb-4">
 						<label
 							htmlFor="username"
-							className="block text-gray-700 text-sm font-bold mb-2"
+							className="block text-gray-700 text-sm font-semibold mb-1"
 						>
 							Username
 						</label>
@@ -101,7 +91,7 @@ function Signup() {
 							name="username"
 							value={formData.username}
 							onChange={handleChange}
-							className="input-field"
+							className="text-sm border border-gray-300 focus:border-blue-300 outline-none p-1 rounded w-full focus:transition-colors duration-1000"
 							placeholder="Choose a username"
 							required
 						/>
@@ -109,7 +99,7 @@ function Signup() {
 					<div className="mb-6">
 						<label
 							htmlFor="password"
-							className="block text-gray-700 text-sm font-bold mb-2"
+							className="block text-gray-700 text-sm font-semibold mb-1"
 						>
 							Password
 						</label>
@@ -119,7 +109,7 @@ function Signup() {
 							name="password"
 							value={formData.password}
 							onChange={handleChange}
-							className="input-field"
+							className="text-sm border border-gray-300 focus:border-blue-300 outline-none p-1 rounded w-full focus:transition-colors duration-1000"
 							placeholder="Enter a password"
 							required
 						/>
@@ -127,9 +117,9 @@ function Signup() {
 					<div className="flex items-center justify-center">
 						<button
 							type="submit"
-							className="button-primary"
+							className="button-primary bg-blue-600 w-full p-2 rounded text-white text-sm"
 						>
-							Register
+							Sign Up
 						</button>
 					</div>
 				</form>
