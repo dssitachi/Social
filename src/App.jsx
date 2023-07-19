@@ -18,7 +18,7 @@ function App() {
 				</Route> */}
 				{/* <Route path="*" element={<PageNotFound />} /> */}
 			</Routes>
-		</Router>
+		</Router> 
 		<ToastContainer
                 position="bottom-center"
                 autoClose={3000}
