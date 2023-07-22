@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { handleSignup } from "./authSlice";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
 	const dispatch = useDispatch();
@@ -10,6 +11,7 @@ function Signup() {
 		username: '',
 		password: ''
 	});
+	const navigate = useNavigate();
 
 	const handleChange = (e) => {
 		setFormData((prevData) => ({
@@ -28,6 +30,9 @@ function Signup() {
 				password: formData.password,
 			})
 		);
+		setTimeout(() => {
+			navigate('/login')
+		}, 3000);
 	};
 
 	return (

@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { handleLogin } from "./authSlice";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
 
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const dispatch = useDispatch();
-	
+	const navigate = useNavigate();
+
 	function handleSubmit(e) {
 		e.preventDefault();
 		dispatch(
@@ -15,6 +17,9 @@ function Login() {
 				username, password
 			})
 		);
+		setTimeout(() => {
+			navigate('/');
+		},1000);
 	}
 
 	return (

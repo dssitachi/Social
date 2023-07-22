@@ -64,7 +64,7 @@ const authSlice = createSlice({
     }
 })
 
-export const handleLogin = createAsyncThunk('auth/login', async({username, password}, thunkAPI) => {
+export const handleLogin = createAsyncThunk('auth/handleLogin', async({username, password}, thunkAPI) => {
     try {
         const response = await loginService({username, password});
         return response.data;
