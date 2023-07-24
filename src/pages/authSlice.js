@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { AUTHKEY } from '../utils/constants';
 import { displayToast } from '../utils/toast';
-import { loginService, signupService } from '../services/apiServices';
+import { loginService, signupService } from '../services/authServices';
 
 const initialState = {
     user: JSON.parse(localStorage.getItem(AUTHKEY))?.user,
@@ -13,7 +13,11 @@ const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {
-
+        handleLogout: (state) => {
+            localStorage.removeItem(AUTHKEY);
+            state.user = null;
+            state.token = null;
+        }
     },
     extraReducers(builder) {
         builder

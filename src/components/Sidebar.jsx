@@ -1,6 +1,6 @@
 import { AiOutlineHome, AiOutlineUser, AiOutlineCompass } from 'react-icons/ai';
 import { MdOutlineLogout } from 'react-icons/md';
-import { BsBookmarkPlus } from 'react-icons/bs';
+import { BsBookmarkPlus, BsPencilSquare } from 'react-icons/bs';
 import { NavLink } from 'react-router-dom';
 
 function Sidebar() {
@@ -37,8 +37,9 @@ function Sidebar() {
                         <span className="hidden xl:block ml-4 font-semibold">Logout</span>
                     </NavLink>
                 </li>
-                <li className="p-4">
-                    <button className="font-bold text-white bg-[#1DA1F2] px-4 py-2 rounded-lg w-36">Qweet</button>
+                <li className="py-4">
+                    <button className="hidden xl:block font-bold text-white bg-[#1DA1F2] px-4 py-2 rounded-lg w-36">Qweet</button>
+                    <button className="xl:hidden font-bold text-white bg-[#1DA1F2] px-4 py-4 rounded-full"><BsPencilSquare /></button>
                 </li>
             </ul>
         </aside>
