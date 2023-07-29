@@ -3,21 +3,15 @@ import Post from "./Post"
 import { useDispatch, useSelector } from "react-redux";
 import { handleFetchFeed, setIsNextPaginatedPostLoading, setPage } from "./FeedSlice";
 import Loader from "./Loader";
+import { useNavigate } from "react-router-dom";
 
 function Feed() {
     // const posts = posts;
     const dispatch = useDispatch();
     const { allPosts, page, isNextPaginatedPostLoading } = useSelector(state => state.feed);
     const bottomRef = useRef(null);
+    const navigate = useNavigate();
     const displayedPosts = allPosts.slice(0, page * 5);
-
-    function handleIntersection(entries) {
-        const firstEntry = entries[0];
-        if (firstEntry.isIntersecting) {
-            dispatch(setIsNextPaginatedPostLoading(true));
-            dispatch(setPage(page + 1));
-        }
-    }
 
     useEffect(() => {
         dispatch(handleFetchFeed());
@@ -48,16 +42,25 @@ function Feed() {
         }
     }, [setIsNextPaginatedPostLoading, displayedPosts])
 
-    return (
-        <section className="ml-24 xl:ml-56 flex flex-col overflow-y-scroll flex-grow">
-            {/* <Post />
-            <Post />
-            <Post /> */}
+    function handleIntersection(entries) {
+        const firstEntry = entries[0];
+        if (firstEntry.isIntersecting) {
+            dispatch(setIsNextPaginatedPostLoading(true));
+            dispatch(setPage(page + 1));
+        }
+    }
 
+    function handleClick(id) {
+        navigate(`/posts/${id}`)
+    }
+
+    return (
+        <section className="ml-24 xl:ml-56 max-w-xl flex flex-col overflow-y-scroll flex-grow border-x">
+            
             {displayedPosts?.map((post, index) => {
                 return (
                     <React.Fragment key={post._id}>
-                        <Post post={post} />
+                        <Post post={post} onClick={() => {handleClick(post._id)}} isPopup={false}/>
                         {index === displayedPosts?.length - 1 && (
                             <div
                                 ref={bottomRef}

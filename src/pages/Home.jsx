@@ -9,7 +9,6 @@ function Home() {
 		<main className="min-h-screen mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 flex">
 			<Sidebar />
 			<Feed />
-
 		</main>
 	)
 }

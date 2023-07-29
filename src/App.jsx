@@ -5,6 +5,7 @@ import RequireAuth from './components/RequireAuth';
 import Home from './pages/Home';
 import { ToastContainer, Slide } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import PostDetail from "./pages/PostDetail";
 
 function App() {
 	return (
@@ -15,6 +16,7 @@ function App() {
 				<Route path="/signup" element={<Signup />} />
 				<Route element={<RequireAuth />}>
 					<Route path="/" element={<Home />} />
+					<Route path="/posts/:id" element={<PostDetail />} />
 				</Route>
 				{/* <Route path="*" element={<PageNotFound />} /> */}
 			</Routes>

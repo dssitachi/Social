@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { feedService, likePostService } from "../services/feedServices";
+import { addCommentPopupService } from "../services/commentServices";
 
 
 const initialState = {
@@ -31,6 +32,18 @@ export const handleLikePost = createAsyncThunk("feed/handleLikePost", async ({po
         return thunkAPI.rejectWithValue(error); 
     }
 })
+
+export const handleAddComment = createAsyncThunk("feed/handleAddComment", async ({comment, postId, token}, thunkAPI) => {
+    try{
+        const response = await addCommentPopupService(comment, postId, token);
+        return response.data.posts;
+    }
+    catch(error){
+        console.log(error)
+        return thunkAPI.rejectWithValue(error); 
+    }
+})
+
 
 const feedSlice = createSlice({
     name: "feed",
@@ -71,6 +84,18 @@ const feedSlice = createSlice({
             state.isLoading = false;
         })
 
+        .addCase(handleAddComment.pending, (state) => {
+            state.isLoading = true;
+        })
+
+        .addCase(handleAddComment.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.allPosts = action.payload
+        })
+
+        .addCase(handleAddComment.rejected, (state) => {
+            state.isLoading = false;
+        })
     }
 })
 

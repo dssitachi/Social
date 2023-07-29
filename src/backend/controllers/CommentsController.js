@@ -72,6 +72,47 @@ export const addPostCommentHandler = function (schema, request) {
   }
 };
 
+
+export const addPostCommentPopupHandler = function (schema, request) {
+  const user = requiresAuth.call(this, request);
+  try {
+    if (!user) {
+      return new Response(
+        404,
+        {},
+        {
+          errors: [
+            "The username you entered is not Registered. Not Found error",
+          ],
+        }
+      );
+    }
+    const { postId } = request.params;
+    const { commentData } = JSON.parse(request.requestBody);
+
+    const comment = {
+      _id: uuid(),
+      ...commentData,
+      username: user.username,
+      votes: { upvotedBy: [], downvotedBy: [] },
+      createdAt: formatDate(),
+      updatedAt: formatDate(),
+    };
+    const post = schema.posts.findBy({ _id: postId }).attrs;
+    post.comments.push(comment);
+    this.db.posts.update({ _id: postId }, post);
+    return new Response(201, {}, { posts: this.db.posts });
+  } catch (error) {
+    return new Response(
+      500,
+      {},
+      {
+        error,
+      }
+    );
+  }
+};
+
 /**
  * This handler handles editing a comment to a particular post in the db.
  * send POST Request at /api/comments/edit/:postId/:commentId
