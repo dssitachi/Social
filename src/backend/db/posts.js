@@ -10,9 +10,9 @@ export const posts = [
   /**wyatt post 2 */
   {
     _id: uuid(),
-    content: "Delicious homemade pizza ",
+    content: "The beauty of nature never ceases to amaze me. Spent the weekend camping amidst lush forests and starry skies. 🏕️🌌 Disconnecting from the digital world and reconnecting with Mother Earth does wonders for the soul. Highly recommend it! ",
     mediaURL:
-      "https://res.cloudinary.com/drjisfpis/image/upload/v1688295952/pizza_d9i4sb.jpg",
+      "https://res.cloudinary.com/dgx3pvjwm/image/upload/v1690645043/Screenshot_2023-07-29_at_9.07.11_PM_zrficy.png",
     likes: {
       likeCount: 4,
       likedBy: [
@@ -145,7 +145,7 @@ export const posts = [
   /***2nd post */
   {
     _id: uuid(),
-    content: "Grooving to the rhythm of the beat",
+    content: "Life's a journey of ups and downs, but it's the people we meet along the way who make it extraordinary. 🤝💞 From cherished childhood friends to newfound soulmates, every connection leaves an imprint on our hearts. Celebrating the gift of friendship today and always.",
     mediaURL:
       "",
     likes: {
@@ -272,9 +272,9 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "In the stillness of a pose, the magic of Bharatanatyam comes alive",
+      "Attended a thought-provoking TEDx event that left me inspired and motivated. 🎤💡 The talks centered around innovation, empathy, and pushing boundaries. It reinforced the idea that even the smallest actions can lead to significant change. Let's make a positive impact together! ",
     mediaURL:
-      "https://res.cloudinary.com/drjisfpis/image/upload/v1686760131/socioSphere/dancer-3_wgmjq1.jpg",
+      "https://res.cloudinary.com/dgx3pvjwm/image/upload/v1690645172/Screenshot_2023-07-29_at_9.09.26_PM_bzghy0.png",
     likes: {
       likeCount: 4,
       likedBy: [
@@ -348,9 +348,9 @@ export const posts = [
 
   {
     _id: uuid(),
-    content: "Joyful underprivileged kids savoring ice-cream.",
+    content: "Weekends are for embracing creativity! 🎨✨ I spent hours in my little art studio, letting my imagination run wild on the canvas. Art has this beautiful way of healing the soul and expressing emotions words can't capture. Wishing you all a colorful and expressive weekend!",
     mediaURL:
-      "https://res.cloudinary.com/drjisfpis/image/upload/v1686813962/socioSphere/photographer-1_ukgrmv.jpg",
+      "",
     likes: {
       likeCount: 3,
       likedBy: [

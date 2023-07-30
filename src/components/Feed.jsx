@@ -1,21 +1,16 @@
 import React, { useEffect, useRef } from "react"
 import Post from "./Post"
 import { useDispatch, useSelector } from "react-redux";
-import { handleFetchFeed, setIsNextPaginatedPostLoading, setPage } from "./FeedSlice";
+import { setIsNextPaginatedPostLoading, setPage } from "./FeedSlice";
 import Loader from "./Loader";
 import { useNavigate } from "react-router-dom";
 
 function Feed() {
-    // const posts = posts;
     const dispatch = useDispatch();
     const { allPosts, page, isNextPaginatedPostLoading } = useSelector(state => state.feed);
     const bottomRef = useRef(null);
     const navigate = useNavigate();
     const displayedPosts = allPosts.slice(0, page * 5);
-
-    useEffect(() => {
-        dispatch(handleFetchFeed());
-    }, []);
 
     useEffect(() => {
         if (displayedPosts?.length > 0 && displayedPosts?.length < allPosts.length) {
@@ -60,7 +55,7 @@ function Feed() {
             {displayedPosts?.map((post, index) => {
                 return (
                     <React.Fragment key={post._id}>
-                        <Post post={post} onClick={() => {handleClick(post._id)}} isPopup={false}/>
+                        <Post post={post} onClick={() => {handleClick(index)}} isPopup={false}/>
                         {index === displayedPosts?.length - 1 && (
                             <div
                                 ref={bottomRef}

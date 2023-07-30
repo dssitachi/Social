@@ -1,25 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { handleLogin } from "./authSlice";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Login() {
 
-	const [username, setUsername] = useState("");
-	const [password, setPassword] = useState("");
+	const { token } = useSelector(state => state.auth);
+	const [username, setUsername] = useState("adarshbalika");
+	const [password, setPassword] = useState("adarshBalika123");
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const location = useLocation();
+	const from = location.state?.from || "/";
+	
+	useEffect(() => {
+		if(token) {
+			navigate(from, {replace: true});
+		}
+	}, [token])
+
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		dispatch(
-			handleLogin({
-				username, password
-			})
-		);
-		setTimeout(() => {
-			navigate('/');
-		},1000);
+		dispatch(handleLogin({ username, password }));
 	}
 
 	return (

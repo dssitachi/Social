@@ -83,7 +83,8 @@ export function makeServer({ environment = "development" } = {}) {
       this.get("/comments/:postId", getPostCommentsHandler.bind(this));
 
       //post comments routes (private)
-      this.post("/comments/add/:postId", addPostCommentPopupHandler.bind(this));
+      this.post("/comments/addPopup/:postId", addPostCommentPopupHandler.bind(this));
+      this.post("/comments/add/:postId", addPostCommentHandler.bind(this));
       this.post(
         "/comments/edit/:postId/:commentId",
         editPostCommentHandler.bind(this)

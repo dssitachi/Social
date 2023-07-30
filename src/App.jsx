@@ -6,32 +6,37 @@ import Home from './pages/Home';
 import { ToastContainer, Slide } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import PostDetail from "./pages/PostDetail";
+import Feed from "./components/Feed";
+import Bookmark from "./pages/Bookmark";
 
 function App() {
 	return (
 		<>
-		<Router>
-			<Routes>
-				<Route path="/login" element={<Login />} />
-				<Route path="/signup" element={<Signup />} />
-				<Route element={<RequireAuth />}>
-					<Route path="/" element={<Home />} />
-					<Route path="/posts/:id" element={<PostDetail />} />
-				</Route>
-				{/* <Route path="*" element={<PageNotFound />} /> */}
-			</Routes>
-		</Router> 
-		<ToastContainer
-                position="bottom-center"
-                autoClose={3000}
-                hideProgressBar
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                pauseOnHover={false}
-                transition={Slide}
-            />
+			<Router>
+				<Routes>
+					<Route path="/login" element={<Login />} />
+					<Route path="/signup" element={<Signup />} />
+					<Route element={<RequireAuth />}>
+						<Route element={<Home />}>
+							<Route path="/" exact element={<Feed />} />
+							<Route path="/posts/:id" element={<PostDetail />} />
+							<Route path="/bookmark" element={<Bookmark />} />
+						</Route>
+					</Route>
+					{/* <Route path="*" element={<PageNotFound />} /> */}
+				</Routes>
+			</Router>
+			<ToastContainer
+				position="bottom-center"
+				autoClose={3000}
+				hideProgressBar
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				pauseOnHover={false}
+				transition={Slide}
+			/>
 		</>
 	)
 }

@@ -74,6 +74,7 @@ export const handleLogin = createAsyncThunk('auth/handleLogin', async({username,
         return response.data;
     } catch(error) {
         console.log(error)
+        displayToast("error", "Username or password is incorrect")
         return thunkAPI.rejectWithValue("Username or password is incorrect")
     }
 })

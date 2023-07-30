@@ -27,7 +27,7 @@ function CommentPopup({ post, postId, onClose }) {
                     value={comment} onChange={(e) => { setComment(e.target.value) }}></textarea>
                 <div className="flex justify-end">
                     <button onClick={addComment}
-                        className={`mb-2 bg-blue-500 text-white font-semibold py-2 px-4 rounded-full mr-2
+                        className={`mb-2 bg-[#1DA1F2] text-white font-semibold py-2 px-4 rounded-full mr-2
                             ${comment.length ? 'cursor-pointer' : 'cursor-not-allowed bg-blue-300'}
                         `}
                         disabled={comment.length ? false : true}
