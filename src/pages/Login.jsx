@@ -6,8 +6,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 function Login() {
 
 	const { token } = useSelector(state => state.auth);
-	const [username, setUsername] = useState("adarshbalika");
-	const [password, setPassword] = useState("adarshBalika123");
+	const [username, setUsername] = useState("LParker22");
+	const [password, setPassword] = useState("LParker22");
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const location = useLocation();

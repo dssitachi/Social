@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { bookMarkPostService, feedService, getBookMarksService, likePostService, undoBookMarkPostService, undoLikePostService } from "../services/feedServices";
+import { bookMarkPostService, createPostService, feedService, getBookMarksService, likePostService, undoBookMarkPostService, undoLikePostService } from "../services/feedServices";
 import { addCommentPopupService } from "../services/commentServices";
 import { displayToast } from "../utils/toast";
 
@@ -48,6 +48,17 @@ export const handleAddComment = createAsyncThunk("feed/handleAddComment", async 
     try{
         const response = await addCommentPopupService(comment, postId, token);
         displayToast("success", "Your reply has been sent")
+        return response.data.posts;
+    }
+    catch(error){
+        console.log(error)
+        return thunkAPI.rejectWithValue(error); 
+    }
+})
+
+export const handleAddPost = createAsyncThunk("feed/handleAddPost", async ({post, token}, thunkAPI) => {
+    try{
+        const response = await createPostService(post, token);
         return response.data.posts;
     }
     catch(error){
@@ -111,6 +122,19 @@ const feedSlice = createSlice({
         })
 
         .addCase(handleFetchFeed.rejected, (state) => {
+            state.isLoading = false;
+        })
+
+        .addCase(handleAddPost.pending, (state) => {
+            state.isLoading = true;
+        })
+
+        .addCase(handleAddPost.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.allPosts = action.payload
+        })
+
+        .addCase(handleAddPost.rejected, (state) => {
             state.isLoading = false;
         })
 

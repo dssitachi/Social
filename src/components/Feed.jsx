@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setIsNextPaginatedPostLoading, setPage } from "./FeedSlice";
 import Loader from "./Loader";
 import { useNavigate } from "react-router-dom";
+import AddPost from "./AddPost";
 
 function Feed() {
     const dispatch = useDispatch();
@@ -52,6 +53,8 @@ function Feed() {
     return (
         <section className="ml-24 xl:ml-56 max-w-xl flex flex-col overflow-y-scroll flex-grow border-x">
             
+            <AddPost />
+
             {displayedPosts?.map((post, index) => {
                 return (
                     <React.Fragment key={post._id}>

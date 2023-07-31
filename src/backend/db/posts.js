@@ -633,35 +633,24 @@ export const posts = [
   /**wyatt post1 */
   {
     _id: uuid(),
-    content: "Delicious dessert on-the-go!",
-    mediaURL:
-      "https://res.cloudinary.com/drjisfpis/image/upload/v1688296559/sweet_ochroo.jpg",
+    content: "Nothing beats the feeling of reading a good book on a lazy Sunday afternoon. 📚🌞 Curling up with a captivating story is my favorite way to unwind and escape reality. What's your go-to book for relaxation?",
+    mediaURL: "",
     likes: {
-      likeCount: 3,
+      likeCount: 2,
       likedBy: [
         {
           _id: uuid(),
-          firstName: "Sophia",
-          lastName: "Anderson",
-          username: "SophiaA",
-          avatarURL:
-            "https://res.cloudinary.com/drjisfpis/image/upload/v1686544474/socioSphere/profile-12_ge7xeq.jpg",
+          firstName: "Olivia",
+          lastName: "Robinson",
+          username: "OliviaR",
+          avatarURL: "https://res.cloudinary.com/drjisfpis/image/upload/v1686544474/socioSphere/profile-7_ay6ush.jpg",
         },
         {
           _id: uuid(),
-          firstName: "Ethan",
-          lastName: "Anderson",
-          username: "EthanA94",
-          avatarURL:
-            "https://res.cloudinary.com/drjisfpis/image/upload/v1686544619/socioSphere/profile-15_mtm2pp.jpg",
-        },
-        {
-          _id: uuid(),
-          firstName: "Afreen",
-          lastName: "Almaz",
-          username: "Afreen",
-          avatarURL:
-            "https://res.cloudinary.com/drjisfpis/image/upload/v1686544619/socioSphere/profile-20_k20z1j.jpg",
+          firstName: "Lucas",
+          lastName: "Smith",
+          username: "LucasS",
+          avatarURL: "https://res.cloudinary.com/drjisfpis/image/upload/v1686544474/socioSphere/profile-9_gnddss.jpg",
         },
       ],
       dislikedBy: [],
@@ -669,34 +658,32 @@ export const posts = [
     comments: [
       {
         _id: uuid(),
-        firstName: "Afreen",
-        lastName: "Almaz",
-        username: "Afreen",
-        avatarURL:
-          "https://res.cloudinary.com/drjisfpis/image/upload/v1686544619/socioSphere/profile-20_k20z1j.jpg",
-        text: "Mouthwatering and bursting with flavor!",
-        createdAt: new Date("February 02 2021 06:09:09"),
+        firstName: "Olivia",
+        lastName: "Robinson",
+        username: "OliviaR",
+        avatarURL: "https://res.cloudinary.com/drjisfpis/image/upload/v1686544474/socioSphere/profile-7_ay6ush.jpg",
+        text: "Reading is the best therapy!",
+        createdAt: new Date("April 10 2023 15:20:45"),
       },
       {
         _id: uuid(),
-        firstName: "Ethan",
-        lastName: "Anderson",
-        username: "EthanA94",
-        avatarURL:
-          "https://res.cloudinary.com/drjisfpis/image/upload/v1686544619/socioSphere/profile-15_mtm2pp.jpg",
-        text: "Irresistibly delicious!",
-        createdAt: new Date("March 18 2023 11:09:09"),
+        firstName: "Lucas",
+        lastName: "Smith",
+        username: "LucasS",
+        avatarURL: "https://res.cloudinary.com/drjisfpis/image/upload/v1686544474/socioSphere/profile-9_gnddss.jpg",
+        text: "Couldn't agree more! I love diving into fantasy worlds.",
+        createdAt: new Date("April 10 2023 15:23:09"),
       },
     ],
-    firstName: "Lucas",
-    lastName: "Parker",
-    username: "LParker22",
-    avatarURL:
-      "https://res.cloudinary.com/drjisfpis/image/upload/v1686544474/socioSphere/profile-8_coy7oo.jpg",
-    createdAt: new Date("Feb 21 2022 7:30:09"),
+    firstName: "Emily",
+    lastName: "Johnson",
+    username: "EmilyJ",
+    avatarURL: "https://res.cloudinary.com/drjisfpis/image/upload/v1686544474/socioSphere/profile-5_gi5kko.jpg",
+    createdAt: new Date("April 10 2023 14:55:02"),
     updatedAt: formatDate(),
-    hashtags: "#Foodgasm#Foodstagram#FoodLover#FoodieLife",
-  },
+    hashtags: "#BookLovers #LazySunday #EscapeReality #ReadingTime",
+},
+
   /***9th post */
   {
     _id: uuid(),

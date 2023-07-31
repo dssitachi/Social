@@ -93,3 +93,4 @@ export const handleSignup = createAsyncThunk(
 )
 
 export const authReducer = authSlice.reducer;
+export const { handleLogout } = authSlice.actions;
