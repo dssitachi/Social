@@ -11,6 +11,10 @@ import { v4 as uuid } from "uuid";
  * send GET Request at /api/comments/:postId
  * */
 
+function orderPostByDate(posts) {
+  return posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+}
+
 export const getPostCommentsHandler = function (schema, request) {
   const postId = request.params.postId;
   try {
@@ -101,7 +105,7 @@ export const addPostCommentPopupHandler = function (schema, request) {
     const post = schema.posts.findBy({ _id: postId }).attrs;
     post.comments.push(comment);
     this.db.posts.update({ _id: postId }, post);
-    return new Response(201, {}, { posts: this.db.posts });
+    return new Response(201, {}, { posts: orderPostByDate(this.db.posts) });
   } catch (error) {
     return new Response(
       500,

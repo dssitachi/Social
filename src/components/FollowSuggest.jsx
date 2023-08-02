@@ -2,7 +2,7 @@
 
 function FollowSuggest() {
     return (
-        <section className="hidden lg:block p-4 m-2 w-full mt-16">
+        <section className="p-4 m-2 w-full mt-16 fixed">
             <h3 className="font-semibold text-2xl">Who to follow</h3>
             <ul>
                 <li className="mt-4">

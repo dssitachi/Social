@@ -11,8 +11,12 @@ import { v4 as uuid } from "uuid";
  * send GET Request at /api/posts
  * */
 
+function orderPostByDate(posts) {
+  return posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+}
+
 export const getAllpostsHandler = function () {
-  return new Response(200, {}, { posts: this.db.posts });
+  return new Response(200, {}, { posts: orderPostByDate(this.db.posts) });
 };
 
 /**
@@ -86,12 +90,13 @@ export const createPostHandler = function (schema, request) {
         likedBy: [],
         dislikedBy: [],
       },
+      comments: [],
       username: user.username,
       createdAt: formatDate(),
       updatedAt: formatDate(),
     };
     this.db.posts.insert(post);
-    return new Response(201, {}, { posts: this.db.posts });
+    return new Response(201, {}, { posts: orderPostByDate(this.db.posts) });
   } catch (error) {
     return new Response(
       500,
@@ -136,7 +141,7 @@ export const editPostHandler = function (schema, request) {
     }
     post = { ...post, ...postData };
     this.db.posts.update({ _id: postId }, post);
-    return new Response(201, {}, { posts: this.db.posts });
+    return new Response(201, {}, { posts: orderPostByDate(this.db.posts) });
   } catch (error) {
     return new Response(
       500,
@@ -182,7 +187,7 @@ export const likePostHandler = function (schema, request) {
     post.likes.likeCount += 1;
     post.likes.likedBy.push(user);
     this.db.posts.update({ _id: postId }, { ...post, updatedAt: formatDate() });
-    return new Response(201, {}, { posts: this.db.posts });
+    return new Response(201, {}, { posts: orderPostByDate(this.db.posts) });
   } catch (error) {
     return new Response(
       500,
@@ -231,12 +236,14 @@ export const dislikePostHandler = function (schema, request) {
     }
     post.likes.likeCount -= 1;
     const updatedLikedBy = post.likes.likedBy.filter(
-      (currUser) => currUser._id !== user._id
+      (currUser) => currUser.username !== user.username
     );
     post.likes.dislikedBy.push(user);
     post = { ...post, likes: { ...post.likes, likedBy: updatedLikedBy } };
     this.db.posts.update({ _id: postId }, { ...post, updatedAt: formatDate() });
-    return new Response(201, {}, { posts: this.db.posts });
+    console.log('In post controller')
+    console.log(this.db.posts);
+    return new Response(201, {}, { posts: orderPostByDate(this.db.posts) });
   } catch (error) {
     return new Response(
       500,
@@ -280,7 +287,7 @@ export const deletePostHandler = function (schema, request) {
       );
     }
     this.db.posts.remove({ _id: postId });
-    return new Response(201, {}, { posts: this.db.posts });
+    return new Response(201, {}, { posts: orderPostByDate(this.db.posts) });
   } catch (error) {
     return new Response(
       500,

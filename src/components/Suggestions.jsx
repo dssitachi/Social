@@ -3,7 +3,7 @@ import FollowSuggest from "./FollowSuggest"
 
 function Suggestions() {
     return (
-        <aside className="flex flex-grow">
+        <aside className="hidden lg:flex flex-grow relative">
             <FollowSuggest />
         </aside>
     )
