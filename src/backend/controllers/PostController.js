@@ -241,8 +241,6 @@ export const dislikePostHandler = function (schema, request) {
     post.likes.dislikedBy.push(user);
     post = { ...post, likes: { ...post.likes, likedBy: updatedLikedBy } };
     this.db.posts.update({ _id: postId }, { ...post, updatedAt: formatDate() });
-    console.log('In post controller')
-    console.log(this.db.posts);
     return new Response(201, {}, { posts: orderPostByDate(this.db.posts) });
   } catch (error) {
     return new Response(

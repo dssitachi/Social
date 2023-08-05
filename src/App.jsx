@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import PostDetail from "./pages/PostDetail";
 import Feed from "./components/Feed";
 import Bookmark from "./pages/Bookmark";
+import Profile from "./pages/Profile";
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 							<Route path="/" exact element={<Feed />} />
 							<Route path="/posts/:id" element={<PostDetail />} />
 							<Route path="/bookmark" element={<Bookmark />} />
+							<Route path="/profile" element={<Profile />} />
 						</Route>
 					</Route>
 					{/* <Route path="*" element={<PageNotFound />} /> */}

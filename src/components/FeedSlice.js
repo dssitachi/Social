@@ -36,7 +36,6 @@ export const handleLikePost = createAsyncThunk("feed/handleLikePost", async ({po
 export const handleUndoLikePost = createAsyncThunk("feed/handleUndoLikePost", async ({postId, token}, thunkAPI) => {
     try{
         const response = await undoLikePostService(postId, token);
-        console.log(response.data.posts)
         return response.data.posts;
     }
     catch(error){

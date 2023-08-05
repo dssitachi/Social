@@ -10,6 +10,12 @@ export function addCommentPopupService(comment, postId, token) {
         { commentData: comment },
         { headers: { authorization: token } }
     );
+
+    // return new Promise((_, reject) => {
+    //     setTimeout(() => {
+    //         reject()
+    //     },3000);
+    // })
 }
 
 export function addCommentService(comment, postId, token) {
