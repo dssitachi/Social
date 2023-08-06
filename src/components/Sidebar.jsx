@@ -41,7 +41,7 @@ function Sidebar() {
                         </NavLink>
                     </li>
                     <li className="py-4" onClick={() => { setIsAddCommentPopup(true) }}>
-                        <button className="hidden xl:block font-bold text-white bg-[#1DA1F2] px-4 py-2 rounded-lg w-36">Tweet</button>
+                        <button className="hidden xl:block font-bold text-white bg-[#1DA1F2] px-4 py-2 rounded-lg w-36">Vibe</button>
                         <button className="xl:hidden font-bold text-white bg-[#1DA1F2] px-4 py-4 rounded-full"><BsPencilSquare /></button>
                     </li>
                 </ul>

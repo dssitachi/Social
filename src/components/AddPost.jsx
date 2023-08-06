@@ -28,7 +28,7 @@ function AddPost() {
                     className={`bg-[#1DA1F2] text-white font-semibold py-2 px-4 rounded-full mr-4
                             ${post.content.length ? 'cursor-pointer' : 'cursor-not-allowed bg-blue-200'}`}
                     disabled={post.content.length ? false : true}>
-                    Tweet
+                    Vibe
                 </button>
             </div>
         </div>

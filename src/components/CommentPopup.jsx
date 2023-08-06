@@ -25,7 +25,7 @@ function CommentPopup({ post, postId, onClose }) {
 
                 <Post post={post} isPopup={true} />
 
-                <textarea placeholder="Tweet Your Reply" cols="30" rows="5" className="m-4 border p-2 focus:outline-none"
+                <textarea placeholder="Vibe Your Reply" cols="30" rows="5" className="m-4 border p-2 focus:outline-none"
                     value={comment} onChange={(e) => { setComment(e.target.value) }}></textarea>
                 <div className="flex justify-end">
                     <button onClick={addComment}

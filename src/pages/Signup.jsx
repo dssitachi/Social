@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { handleSignup } from "./authSlice";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import RegisterImg from "../assets/Register.png"
 
 function Signup() {
 	const dispatch = useDispatch();
@@ -36,21 +37,22 @@ function Signup() {
 	};
 
 	return (
-		<main className="flex items-center justify-center min-h-screen bg-white">
-			<div className="w-full max-w-md bg-gray-100">
+		<section className="min-h-screen mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 flex-col md:flex-row flex justify-center items-center gap-8">
+			<div className="h-32 w-32 md:h-auto md:w-auto">
+				<img src={RegisterImg} alt="Register Logo Image" />
+			</div>
+			<div className="max-w-sm w-full">
+				<h2 className="font-semibold text-xl">Create An Account</h2>
 				<form
-					className=" rounded px-8 py-6"
+					className="rounded py-4"
 					onSubmit={(e) => {
 						handleSubmit(e);
 					}}
 				>
-					<h1 className="text-3xl font-medium text-center mb-8">
-						Register
-					</h1>
 					<div className="mb-4">
 						<label
 							htmlFor="firstName"
-							className="block text-gray-700 text-sm font-semibold mb-1"
+							className="block text-gray-700 text-sm font-medium mb-1"
 						>
 							First Name
 						</label>
@@ -60,7 +62,7 @@ function Signup() {
 							name="firstName"
 							value={formData.firstName}
 							onChange={handleChange}
-							className="text-sm border bg-transparent border-gray-300 focus:border-blue-300 outline-none p-1 rounded w-full focus:transition-colors duration-1000"
+							className="text-xs border border-gray-300 focus:border-blue-300 outline-none py-2 px-3 rounded w-full focus:transition-colors duration-1000"
 							placeholder="Enter your first name"
 							required
 						/>
@@ -68,7 +70,7 @@ function Signup() {
 					<div className="mb-4">
 						<label
 							htmlFor="lastName"
-							className="block text-gray-700 text-sm font-semibold mb-1"
+							className="block text-gray-700 text-sm font-medium mb-1"
 						>
 							Last Name
 						</label>
@@ -78,7 +80,7 @@ function Signup() {
 							name="lastName"
 							value={formData.lastName}
 							onChange={handleChange}
-							className="text-sm border border-gray-300 focus:border-blue-300 outline-none p-1 rounded w-full focus:transition-colors duration-1000"
+							className="text-xs border border-gray-300 focus:border-blue-300 outline-none py-2 px-3 rounded w-full focus:transition-colors duration-1000"
 							placeholder="Enter your last name"
 							required
 						/>
@@ -86,7 +88,7 @@ function Signup() {
 					<div className="mb-4">
 						<label
 							htmlFor="username"
-							className="block text-gray-700 text-sm font-semibold mb-1"
+							className="block text-gray-700 text-sm font-medium mb-1"
 						>
 							Username
 						</label>
@@ -96,7 +98,7 @@ function Signup() {
 							name="username"
 							value={formData.username}
 							onChange={handleChange}
-							className="text-sm border border-gray-300 focus:border-blue-300 outline-none p-1 rounded w-full focus:transition-colors duration-1000"
+							className="text-xs border border-gray-300 focus:border-blue-300 outline-none py-2 px-3 rounded w-full focus:transition-colors duration-1000"
 							placeholder="Choose a username"
 							required
 						/>
@@ -104,7 +106,7 @@ function Signup() {
 					<div className="mb-6">
 						<label
 							htmlFor="password"
-							className="block text-gray-700 text-sm font-semibold mb-1"
+							className="block text-gray-700 text-sm font-medium mb-1"
 						>
 							Password
 						</label>
@@ -114,7 +116,7 @@ function Signup() {
 							name="password"
 							value={formData.password}
 							onChange={handleChange}
-							className="text-sm border border-gray-300 focus:border-blue-300 outline-none p-1 rounded w-full focus:transition-colors duration-1000"
+							className="text-xs border border-gray-300 focus:border-blue-300 outline-none py-2 px-3 rounded w-full focus:transition-colors duration-1000"
 							placeholder="Enter a password"
 							required
 						/>
@@ -128,8 +130,14 @@ function Signup() {
 						</button>
 					</div>
 				</form>
+				<div>
+					<span className="text-sm">Already have an account?</span>
+					<NavLink to="/login" className={`flex items-center`} >
+						<span className="text-sm underline text-blue-400">Login to vibe!!</span>
+					</NavLink>
+				</div>
 			</div>
-		</main>
+		</section>
 	)
 }
 

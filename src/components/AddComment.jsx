@@ -3,7 +3,7 @@ function AddComment({ newComment, setNewComment, handleAddComment }) {
 
     return (
         <div className="flex flex-col border-b">
-            <textarea placeholder="Tweet Your Reply" cols="30" rows="3" className="mt-4 mb-2 mx-4 border p-2 focus:outline-none"
+            <textarea placeholder="Vibe Your Reply" cols="30" rows="3" className="mt-4 mb-2 mx-4 border p-2 focus:outline-none"
                 value={newComment} onChange={(e) => { setNewComment(e.target.value) }}></textarea>
 
             <div className="flex justify-end mb-2">
