@@ -48,13 +48,13 @@ const authSlice = createSlice({
         })
 
         .addCase(handleSignup.fulfilled, (state, action) => {
-            state.user = action.payload.foundUser;
+            state.user = action.payload.createdUser;
             state.token = action.payload.encodedToken;
             state.isLoading = false;
             localStorage.setItem(
                 AUTHKEY,
                 JSON.stringify({
-                    user: action.payload.foundUser,
+                    user: action.payload.createdUser,
                     token: action.payload.encodedToken,
                 })
             );

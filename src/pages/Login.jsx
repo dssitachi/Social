@@ -7,8 +7,8 @@ import loginImage from "../assets/Login.png";
 function Login() {
 
 	const { token } = useSelector(state => state.auth);
-	const [username, setUsername] = useState("LParker22");
-	const [password, setPassword] = useState("LParker22");
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const location = useLocation();
@@ -24,6 +24,10 @@ function Login() {
 	function handleSubmit(e) {
 		e.preventDefault();
 		dispatch(handleLogin({ username, password }));
+	}
+
+	function loginAsGuest() {
+		dispatch(handleLogin({ username: "LParker22", password: "LParker22"}))
 	}
 
 	return (
@@ -63,12 +67,18 @@ function Login() {
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 					</div>
-					<div className="flex items-center justify-between">
+					<div className="flex items-center justify-between mb-2">
 						<button
 							className="w-full bg-blue-500 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 							type="submit"
 						>
 							Log In
+						</button>
+					</div>
+					<div className="flex items-center justify-between">
+						<button onClick={loginAsGuest} type="button"
+							className="w-full bg-gray-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+							Log as a guest
 						</button>
 					</div>
 				</form>

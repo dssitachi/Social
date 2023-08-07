@@ -873,9 +873,9 @@ export const posts = [
 
   {
     _id: uuid(),
-    content: "My First React project: E-Commerce app",
+    content: "Diving into the world of #BlueLockAnime and I'm already hooked! ⚽️🔵 The intensity and competition on and off the field are keeping me on the edge of my seat. Who else is loving this soccer-themed anime? 🥅🌟 #AnimeAddict",
     mediaURL:
-      "https://res.cloudinary.com/drjisfpis/image/upload/v1686565219/socioSphere/post-1_oy5guf.png",
+      "https://res.cloudinary.com/dgx3pvjwm/image/upload/v1691437734/blueLock_etched.png",
     likes: {
       likeCount: 3,
       likedBy: [
@@ -914,7 +914,7 @@ export const posts = [
         username: "EthanA94",
         avatarURL:
           "https://res.cloudinary.com/drjisfpis/image/upload/v1686544619/socioSphere/profile-15_mtm2pp.jpg",
-        text: "Impressive UI and smooth functionality!",
+        text: "Isagi Yoichi, the Egoist",
         createdAt: new Date("January 02 2023 09:09:09"),
       },
       {
@@ -924,7 +924,7 @@ export const posts = [
         username: "WyattSully",
         avatarURL:
           "https://res.cloudinary.com/drjisfpis/image/upload/v1686544474/socioSphere/profile-11_e1e5rl.jpg",
-        text: "Great job, love the design!",
+        text: "Kunigami will be back",
         createdAt: new Date("January 02 2023 09:09:09"),
       },
     ],
